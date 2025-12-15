@@ -7,7 +7,11 @@ TARGETS = \
 	$(BUILD_DIR)/knn.so \
 	$(BUILD_DIR)/vadd.bpf.o
 
-all: $(TARGETS)
+all: $(BUILD_DIR) $(TARGETS)
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+	chmod 777 $(BUILD_DIR)
 
 CC = gcc
 CXX = g++

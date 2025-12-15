@@ -22,6 +22,7 @@ The following steps have been validated on Ubuntu 22.04. When running the comman
 ~/cemu$ git clone https://github.com/cs-qyzhang/CEMU.git
 ~/cemu$ git clone https://github.com/cs-qyzhang/linux-cemu.git
 ~/cemu$ git clone https://github.com/cs-qyzhang/ubpf-cemu.git --recurse-submodules
+~/cemu$ sudo ./CEMU/femu-scripts/pkgdep.sh
 # compile modified linux kernel
 ~/cemu$ cd linux-cemu
 ~/cemu/linux-cemu$ make bzImage -j$(nproc)
@@ -35,9 +36,9 @@ The following steps have been validated on Ubuntu 22.04. When running the comman
 ~/cemu$ cd CEMU
 ~/cemu/CEMU$ mkdir build && cd build
 ~/cemu/CEMU/build$ ../femu-scripts/femu-copy-scripts.sh .
-~/cemu/CEMU/build$ sudo ./pkgdep.sh
 ~/cemu/CEMU/build$ ./femu-compile.sh
-~/cemu/CEMU/build$ cd ../../
+~/cemu/CEMU/build$ cd ../tests/cemu
+~/cemu/CEMU/tests/cemu$ make kernel
 ```
 
 ## Quick Start
@@ -46,7 +47,7 @@ Download our prebuilt VM image based on [DQIB (Debian Quick Image Baker pre-bake
 
 ```bash
 ~/cemu$ wget https://cemu.oss-cn-hangzhou.aliyuncs.com/dqib.tar.xz
-~/cemu$ tar -xJf dqib.tar.xzwget
+~/cemu$ tar -xJf dqib.tar.xz
 ```
 
 Start CEMU VM:
@@ -99,6 +100,7 @@ Run the examples:
 ```bash
 # inside VM
 root@debian:~# cd CEMU/tests/cemu/
+root@debian:~CEMU/tests/cemu# make
 root@debian:~CEMU/tests/cemu# ./build/test_fdmfs
 root@debian:~CEMU/tests/cemu# ./build/vadd_example
 root@debian:~CEMU/tests/cemu# ./build/test_p2p

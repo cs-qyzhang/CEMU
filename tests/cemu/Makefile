@@ -14,8 +14,12 @@ CXX = g++
 CFLAGS = -Wall -Wextra -Wno-unused-function -pedantic -g
 CXXFLAGS = $(CFLAGS)
 
+.PHONY: all kernel
+
 all: $(BUILD_DIR) $(TARGETS)
-	make -C kernel all
+
+kernel:
+	$(MAKE) -C kernel all
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)

@@ -15,10 +15,9 @@ for ((i=0; i<$nr_dev; i++)); do
 		mkdir -p $dir
 		mount $nvm $dir
 		echo "Mount $nvm to $dir"
-		fio --name=write --rw=write --bs=128k --filename=$dir/test --size=16G &
+		fio --name=write --rw=write --bs=128k --filename=$dir/test --size=16G --iodepth=128 --ioengine=io_uring --direct=1 &
         pids+=($!)
-		fio --name=write --rw=write --bs=128k --filename=$dir/output --size=16G &
-        pids+=($!)
+		fallocate -l 16G $dir/output
 	fi
 done
 for pid in ${pids[@]}; do
