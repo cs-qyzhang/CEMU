@@ -1,0 +1,43 @@
+{
+    "parameters": {
+        "femu_mode": 4,
+        "cq_poller_enabled": 1,
+        "mdts": 12,
+        "internal_bandwidth": 0
+    },
+    "namespaces": [
+        {
+            "type": "nvm",
+            "size": "48gb",
+            "parameters": {
+                "secsz": 512,
+                "secs_per_pg": 8,
+                "pgs_per_blk": 256,
+                "blks_per_pl": 64,
+                "pls_per_lun": 1,
+                "luns_per_ch": 6,
+                "nchs": 8,
+                "pg_rd_lat": 62500,
+                "pg_wr_lat": 65000,
+                "blk_er_lat": 100,
+                "ch_xfer_lat": 500
+            }
+        },
+        {
+            "type": "memory",
+            "size": "2gb"
+        },
+        {
+            "type": "compute",
+            "parameters": {
+                "nr_cu": 1,
+                "nr_thread": 1,
+                "time_slice": 200000,
+                "csf_sched_option": "fifo",
+                "context_switch_time": 0,
+                "grouped_csf": 0,
+                "grouped_csf_prio": 0
+            }
+        }
+    ]
+}
