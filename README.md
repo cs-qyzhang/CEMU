@@ -46,7 +46,8 @@ The following steps have been validated on Ubuntu 22.04. When running the comman
 Download our prebuilt VM image based on [DQIB (Debian Quick Image Baker pre-baked images)](https://people.debian.org/~gio/dqib/):
 
 ```bash
-~/cemu$ wget https://cemu.oss-cn-hangzhou.aliyuncs.com/dqib.tar.xz
+~/cemu/CEMU/tests/cemu$ cd ../../../
+~/cemu$ wget https://bit.ly/cemu-dqib -O dqib.tar.xz
 ~/cemu$ tar -xJf dqib.tar.xz
 ```
 

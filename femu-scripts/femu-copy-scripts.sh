@@ -4,7 +4,13 @@
 
 FSD="../femu-scripts"
 
-CPL=(pkgdep.sh femu-compile.sh run-whitebox.sh run-blackbox.sh run-nossd.sh run-zns.sh run-csd.sh run-csd-aws.sh pin.sh ftk)
+# Expand run*.sh under $FSD (not under current directory).
+shopt -s nullglob
+CPL=(pkgdep.sh femu-compile.sh pin.sh ftk)
+for f in "$FSD"/run*.sh; do
+	CPL+=("$(basename "$f")")
+done
+shopt -u nullglob
 
 echo ""
 echo "==> Copying following FEMU script to current directory:"

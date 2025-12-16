@@ -14,13 +14,12 @@
 #   ssh -p 2222 root@localhost
 sudo ./x86_64-softmmu/qemu-system-x86_64 \
     -name "CEMU-DBIQ" \
-    -cpu host \
+    -smp 8 \
     -m 8G \
-    -smp 16 \
-    -enable-kvm \
     -kernel ../../linux-cemu/vmlinux \
     -initrd ../../dqib_amd64-pc/initrd \
     -drive file=../../dqib_amd64-pc/image.qcow2 \
+    -device femu,config_file=./cemu_config.json \
     -device femu,config_file=./cemu_config.json \
     -net user,hostfwd=tcp::2222-:22 \
     -net nic,model=virtio \
