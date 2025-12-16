@@ -113,6 +113,13 @@ root@debian:~CEMU/tests/cemu# ./build/cemu_benchmark
 
 ## Reproduce
 
+## Documentation
+
+For more detailed information, please refer to:
+
+- [CEMU Code Structure](docs/cemu/code-structure.md): Overview of the CEMU codebase architecture, including CSF management, scheduling system, and NVMe CSD command implementation
+- [Developing CSD Applications](docs/cemu/application-development.md): Guide on how to develop Computational Storage Functions (CSFs) for CEMU, including shared library and eBPF program development
+
 ## Acknowledgement
 
 CEMU is built upon the widely used SSD emulator [FEMU](https://github.com/MoatLab/FEMU), which provides a system-level, high-fidelity SSD emulation platform. We sincerely thank the FEMU team for their outstanding work.
