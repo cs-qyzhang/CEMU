@@ -1,5 +1,5 @@
 // https://klyr.github.io/posts/playing_with_ubpf/
-// clang -target bpf -I/usr/include/x86_64-linux-gnu -O2 -g -c double.bpf.c -o double.bpf.o
+// clang -target bpf -I/usr/include/x86_64-linux-gnu -O2 -g -c vadd.bpf.c -o vadd.bpf.o
 
 #include "cemu_def.h"
 
@@ -13,14 +13,12 @@ long long vadd(struct cemu_args *args) {
     long long buffer_len = args->buffer_len;
 
     long long size = cparam1;
-    int *a = ((int **)mr_addr)[0];
-    int *b = &((int **)mr_addr)[0][size];
-    int *out = ((int **)mr_addr)[1];
-    // assert(mr_len[0] == 2 * sizeof(int) * size);
-    // assert(mr_len[1] == sizeof(int) * size);
+    int *a = ((int **)mr_addr)[1];
+    int *b = a + 1;
+    int *out = ((int **)mr_addr)[0];
 
     for (int i = 0; i < size; i++) {
-        out[i] = a[i] + b[i];
+        out[i] = a[i*2] + b[i*2];
     }
     return size;
 }
