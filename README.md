@@ -47,7 +47,7 @@ Download our prebuilt VM image based on [DQIB (Debian Quick Image Baker pre-bake
 
 ```bash
 ~/cemu/CEMU/tests/cemu$ cd ../../../
-~/cemu$ wget https://bit.ly/cemu-dqib -O dqib.tar.xz
+~/cemu$ wget https://pub-1ace83dce33440adb973f7f684e6456d.r2.dev/dqib.tar.xz
 ~/cemu$ tar -xJf dqib.tar.xz
 ```
 
